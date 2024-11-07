@@ -7,8 +7,8 @@ var mainState = {
     preload: function() {      
         game.load.crossOrigin = 'anonymous';
         
-        game.load.image('wall', 'barra.png');
-        game.load.image('ball', 'bola.png');
+        game.load.image('wall', 'assets/barra.png');
+        game.load.image('ball', 'assets/bola.png');
     },
     
     create: function() {

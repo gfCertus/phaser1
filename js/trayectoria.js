@@ -1,36 +1,51 @@
-// Inicializa el juego
-var config = {
+const config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
+    backgroundColor: '#2d2d2d',
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 0 }, // Sin gravedad
+        },
+    },
     scene: {
         preload: preload,
         create: create,
-        update: update
-    }
+        update: update,
+    },
 };
 
-var game = new Phaser.Game(config);
+const game = new Phaser.Game(config);
+let bola;
+let cursors;
 
 function preload() {
-    // Carga recursos, como imágenes
-    this.load.image('bola', 'assets/bola.png');
+    this.load.image('bola', '/assets/bola.png'); // Coloca la ruta de tu imagen aquí
 }
 
 function create() {
+    // Agrega la pelota al centro de la pantalla
+    bola = this.physics.add.image(400, 300, 'bola');
 
-    // Crea la escena, añade un fondo
-// this.add.image(400, 300, 'sky');
-// añade la pelota
-//this.add.image(200, 200, 'bola');
+    // Habilita las teclas de flechas para el movimiento
+    cursors = this.input.keyboard.createCursorKeys();
 }
 
 function update() {
-    // Lógica del juego que se ejecuta en cada frame
- /*   for (i = 1; i>50; 50) do
-    {
-        
+    // Restablece la velocidad de la pelota en cada cuadro
+    bola.setVelocity(0);
+
+    // Control de movimiento con las teclas
+    if (cursors.left.isDown) {
+        bola.setVelocityX(-200);
+    } else if (cursors.right.isDown) {
+        bola.setVelocityX(200);
     }
-*/
-    
+
+    if (cursors.up.isDown) {
+        bola.setVelocityY(-200);
+    } else if (cursors.down.isDown) {
+        bola.setVelocityY(200);
+    }
 }
