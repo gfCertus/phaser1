@@ -22,7 +22,7 @@ function create() {
     // Crea la escena, añade un fondo
 // this.add.image(400, 300, 'sky');
 // añade la pelota
-//this.add.image(200, 200, 'bola');
+this.add.image(200, 200, 'bola');
 }
 
 function update() {
