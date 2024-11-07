@@ -49,9 +49,5 @@ function update() {
         bola.setVelocityY(200);
     }
 
-       for (i = 1; i>50; 50) 
-    {
-        bola.setVelocityX(-200);
-    }
-
+       
 }
